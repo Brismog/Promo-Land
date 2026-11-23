@@ -7,10 +7,6 @@ def hash_function(brand_name, table_size):
 
     index = total % table_size # Remainder
     return index
-    
-# print(hash_function("Nike", 10)),print(hash_function("Apple", 10)),print(hash_function("Samsung", 10))
-# python -m hash_search.py
-
 class HashTable:
 
     def __init__(self, table_size):
@@ -37,15 +33,18 @@ class HashTable:
 
     def search(self, brand_name):
         index = hash_function(brand_name, self.table_size)
+        comparisons = 0 # Number of positions
 
-        for i in range(self.table_size): # If no brand there
+        for i in range(self.table_size):
+            comparisons += 1
+
             if self.table[index] is None:
-                return[]
+                return[], comparisons
 
             elif self.table[index][0].lower() == brand_name.lower(): # Return if exist
-                return self.table[index][1]
+                return self.table[index][1], comparisons
 
             index = (index + 1) % self.table_size # Next position
 
-        return []
+        return [], comparisons
 
