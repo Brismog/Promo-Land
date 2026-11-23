@@ -1,5 +1,4 @@
 import time
-
 from src.data_loader import load_offers
 from Algorithms.linear_search import linear_search
 from Algorithms.binary_search import binary_search
@@ -18,7 +17,7 @@ hash_table = HashTable(table_size)
 for offer in offers:
     hash_table.insert(offer)
 
-repetitions = 5
+repetitions =10
 
 
 # Linear Search
@@ -78,3 +77,5 @@ print("\nHash Search")
 print("Offers found:", len(hash_results))
 print("Comparisons:", hash_comparisons)
 print("Average time:", hash_time * 1000, "ms")
+
+# python -m tests.performance_test
