@@ -23,7 +23,7 @@ print("\nHash Table:")
 print(hash_table.table)
 
 print("\nNike offers:")
-print(hash_table.table[3][1]) # index 3(Nike), Index 1(offer)
+print(hash_table.table[3][1]) # Index 3(Nike), Index 1(offer)
 
 
 print("\nCollision Test:") # Test collision handling
@@ -33,11 +33,11 @@ print("Nike stored at index 3")
 print("Kine stored at index 4")
 
 
-print("\nCase-Insensitive Search Test:") # Test case insensitive search
+print("\nCase-Insensitive Search Test:") # Case insensitive search
 print(hash_table.search("nike"))
 
 
-print("\nCollision Search Test:") # Test searching for the collision brand
+print("\nCollision Search Test:") # Searching for the collision brand
 print(hash_table.search("Kine"))
 
 # python -m hash_search.py
