@@ -18,19 +18,19 @@ class HashTable:
         self.table_size = table_size
         self.table = [None] * table_size
         
-def insert(self, offer):
-    brand_name = offer["brand_name"]
-    index = hash_function(brand_name, self.table_size)
+    def insert(self, offer):
+        brand_name = offer["brand_name"]
+        index = hash_function(brand_name, self.table_size)
 
-    for i in range(self.table_size):
-        if self.table[index] is None:
+        for i in range(self.table_size):
+            if self.table[index] is None:
 
-            self.table[index] = [brand_name, [offer]]
-            return
-        
-        elif self.table[index][0].lower() == brand_name.lower(): # If already exist
+                self.table[index] = [brand_name, [offer]]
+                return
+            
+            elif self.table[index][0].lower() == brand_name.lower(): # If already exist
 
-            self.table[index][1].append(offer)
-            return
+                self.table[index][1].append(offer)
+                return
 
-        index = (index + 1) % self.table_size # Next position/ Wrap around if on last index
+            index = (index + 1) % self.table_size # Next position/ Wrap around if on last index
