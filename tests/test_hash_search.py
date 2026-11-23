@@ -1,14 +1,33 @@
-def hash_function(brand_name, table_size):
+from Algorithms.hash_search import HashTable, hash_function
 
-    total = 0
+# Create offers, test Hash, create table, insert to the table, and display
+offer_1 = {"brand_name": "Nike", "offer_title": "10% discount"}
+offer_2 = {"brand_name": "Nike", "offer_title": "20% discount"}
+offer_3 = {"brand_name": "Apple", "offer_title": "15% discount"}
+offer_4 = {"brand_name": "Kine", "offer_title": "Test offer"}
 
-    brand_name = brand_name.lower()
+print("Hash Function: ")
+print("Nike:", hash_function("Nike", 10))
+print("Apple:", hash_function("Apple", 10))
+print("Samsung:", hash_function("Samsung", 10))
+print("Kine:", hash_function("Kine", 10))
 
-    for character in brand_name:
-        total += ord(character)
+hash_table = HashTable(10)
 
-    index = total % table_size
+hash_table.insert(offer_1)
+hash_table.insert(offer_2)
+hash_table.insert(offer_3)
+hash_table.insert(offer_4)
 
-    return index
+print("\nHash Table:")
+print(hash_table.table)
 
-# python -m tests.test_hash_search
+print("\nNike offers:")
+print(hash_table.table[3][1]) # index 3(Nike), Index 1(offer)
+
+# Test collision handling
+print("\nCollision Test:")
+print("Nike index:", hash_function("Nike", 10))
+print("Kine index:", hash_function("Kine", 10))
+print("Nike stored at index 3")
+print("Kine stored at index 4")
