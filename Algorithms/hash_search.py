@@ -34,3 +34,18 @@ class HashTable:
                 return
 
             index = (index + 1) % self.table_size # Next position/ Wrap around if on last index
+
+    def search(self, brand_name):
+        index = hash_function(brand_name, self.table_size)
+
+        for i in range(self.table_size): # If no brand there
+            if self.table[index] is None:
+                return[]
+
+            elif self.table[index][0].lower() == brand_name.lower(): # Return if exist
+                return self.table[index][1]
+
+            index = (index + 1) % self.table_size # Next position
+
+        return []
+
