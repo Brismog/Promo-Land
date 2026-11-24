@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-
 from src.data_loader import load_offers
 from Algorithms.linear_search import linear_search
 from Algorithms.binary_search import binary_search
@@ -9,10 +8,8 @@ from Algorithms.hash_search import HashTable
 # Start the PromoLand app
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
-
 # Load the offers from the CSV file
 offers = load_offers()
-
 
 # Create a hash table and add all offers
 table_size = max(10, len(offers) * 2)
@@ -20,7 +17,6 @@ hash_table = HashTable(table_size)
 
 for offer in offers:
     hash_table.insert(offer)
-
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -68,7 +64,5 @@ def home():
         comparisons=comparisons
     )
 
-
-# Run the app
 if __name__ == '__main__':
     app.run(debug=True)
