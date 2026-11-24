@@ -40,21 +40,26 @@ print("Nike offers:", nike_offers)
 print("Comparisons:", nike_comparisons)
 
 
-print("\nBrand Not Found Test:") # None existence brand
+# Check what happens when searching for a brand that is not in the hash table
+print("\nSearching for a brand that does not exist:")
 unknown_offers, unknown_comparisons = hash_table.search("Adidas")
-print("Adidas offers:", unknown_offers)
-print("Comparisons:", unknown_comparisons)
+print("Offers found for Adidas:", unknown_offers)
+print("Number of comparisons:", unknown_comparisons)
 
 
-print("\nCase-Insensitive Search Test:") # Case insensitive 
+# Check if the search works when the brand name uses lowercase letters
+print("\nTesting search with lowercase letters:")
 nike_offers, nike_comparisons = hash_table.search("nike")
 print("Nike offers:", nike_offers)
-print("Comparisons:", nike_comparisons)
+print("Number of comparisons:", nike_comparisons)
 
 
-print("\nCollision Search Test:") # Collision brand
+# Check if the hash table can still find an offer after a collision
+print("\nTesting search after a collision:")
 kine_offers, kine_comparisons = hash_table.search("Kine")
 print("Kine offers:", kine_offers)
-print("Comparisons:", kine_comparisons)
+print("Number of comparisons:", kine_comparisons)
 
-# python -m hash_search.py
+
+# Run the test using:
+# python -m tests.test_hash_search
