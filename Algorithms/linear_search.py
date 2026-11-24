@@ -1,5 +1,4 @@
 def linear_search(offers, brand_name):
-
     matching_offers = []
     comparisons = 0
     brand_name = brand_name.strip() # Remove spaces

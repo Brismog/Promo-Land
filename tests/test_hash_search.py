@@ -22,8 +22,10 @@ hash_table.insert(offer_4)
 print("\nHash Table:")
 print(hash_table.table)
 
+
 print("\nNike offers:")
 print(hash_table.table[3][1]) # Index 3(Nike), Index 1(offer)
+
 
 print("\nCollision Test:") # Test collision handling
 print("Nike index:", hash_function("Nike", 10))
@@ -31,20 +33,24 @@ print("Kine index:", hash_function("Kine", 10))
 print("Nike stored at index 3")
 print("Kine stored at index 4")
 
+
 print("\nSearch Test:") # Test for Nike
 nike_offers, nike_comparisons = hash_table.search("Nike")
 print("Nike offers:", nike_offers)
 print("Comparisons:", nike_comparisons)
+
 
 print("\nBrand Not Found Test:") # None existence brand
 unknown_offers, unknown_comparisons = hash_table.search("Adidas")
 print("Adidas offers:", unknown_offers)
 print("Comparisons:", unknown_comparisons)
 
+
 print("\nCase-Insensitive Search Test:") # Case insensitive 
 nike_offers, nike_comparisons = hash_table.search("nike")
 print("Nike offers:", nike_offers)
 print("Comparisons:", nike_comparisons)
+
 
 print("\nCollision Search Test:") # Collision brand
 kine_offers, kine_comparisons = hash_table.search("Kine")

@@ -5,19 +5,18 @@ from Algorithms.binary_search import binary_search
 from Algorithms.hash_search import HashTable
 
 offers = load_offers()
-
 brand_name = "Nike"
-
 unique_brands = set() # Count brands
+
 for offer in offers:
     unique_brands.add(offer["brand_name"].lower())
-
 table_size = max(10, len(unique_brands) * 2) # Create Hash table
 hash_table = HashTable(table_size)
+
 for offer in offers:
     hash_table.insert(offer)
 
-repetitions =10
+repetitions =1000
 
 
 # Linear Search
@@ -37,13 +36,11 @@ for i in range(repetitions):
     binary_results, binary_comparisons = binary_search(offers, brand_name)
 
 end_time = time.perf_counter()
-
 binary_time = (end_time - start_time) / repetitions
 
 
 # Hash Search 
 start_time = time.perf_counter()
-
 for i in range(repetitions):
     hash_results, hash_comparisons = hash_table.search(brand_name)
 
