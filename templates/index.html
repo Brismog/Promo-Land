@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,34 +35,47 @@
 
     </form>
 
-        <div class="offer">
+    {% if offers %}
 
-            <h2>{{ offer["brand_name"] }}</h2>
+        {% for offer in offers %}
 
-            <p>Category: {{ offer["category"] }}</p>
+            <div class="offer">
 
-            <h3>
-                {% if offer["discount_type"] == "percentage" %}
-                    {{ offer["discount_value"] }}%
-                {% else %}
-                    {{ offer["currency"] }} {{ offer["discount_value"] }}
-                {% endif %}
-            </h3>
+                <h2>{{ offer["brand_name"] }}</h2>
 
-            <h3>{{ offer["offer_title"] }}</h3>
+                <p>Category: {{ offer["category"] }}</p>
 
-            <p>{{ offer["offer_description"] }}</p>
-            <p>Promo Code: {{ offer["promo_code"] }}</p>
-            <p>Minimum Spend: {{ offer["currency"] }} {{ offer["minimum_spend"] }}</p>
-            <p>Start Date: {{ offer["start_date"] }}</p>
-            <p>Expiry Date: {{ offer["expiry_date"] }}</p>
-            <p>Terms: {{ offer["terms_and_conditions"] }}</p>
+                <h3>
+                    {% if offer["discount_type"] == "percentage" %}
+                        {{ offer["discount_value"] }}%
+                    {% else %}
+                        {{ offer["currency"] }} {{ offer["discount_value"] }}
+                    {% endif %}
+                </h3>
 
-        </div>
+                <h3>{{ offer["offer_title"] }}</h3>
+
+                <p>{{ offer["offer_description"] }}</p>
+
+            {% if offer["promo_code"] %}
+                <p>Promo Code: {{ offer["promo_code"] }}</p>
+            {% endif %}   
+
+                <p>Minimum Spend: {{ offer["currency"] }} {{ offer["minimum_spend"] }}</p>
+                <p>Start Date: {{ offer["start_date"] }}</p>
+                <p>Expiry Date: {{ offer["expiry_date"] }}</p>
+                <p>Terms: {{ offer["terms_and_conditions"] }}</p>
+
+            </div>
+
+        {% endfor %}
+
+    {% elif brand_name %}
 
         <p>No offers found for {{ brand_name }}.</p>
-   
+
+    {% endif %}
+
 </body>
 </html>
 
-<!--To run http://127.0.0.1:5000/-->
